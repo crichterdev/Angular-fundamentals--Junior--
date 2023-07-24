@@ -1,28 +1,25 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  styleUrls: ['app.component.scss'],
+  selector: "app-root",
+  styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-      {{ title }}
-      <div>
-      {{numberOne+ numberTwo}}
-      </div>
-      <div>
-      {{isHappy? ':)':':('}}
-      </div>
+      <h1>{{ title }}</h1>
+      <h1 [innerHTML]="title"></h1>
 
+      <img [src]="logo">
+
+      <input type="text" [value]="name">
     </div>
   `
-
 })
 export class AppComponent {
-title:string
-numberOne : number=1;
-numberTwo : number=2;
-isHappy: boolean= true;
-constructor(){
-  this.title ='Ultimate Angular';
-}
+  title: string;
+  logo:string='img/logo.svg';
+  name:string= 'Todd';
+
+  constructor() {
+    this.title = "Ultimate Angular";
+  }
 }

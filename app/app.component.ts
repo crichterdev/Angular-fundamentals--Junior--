@@ -5,14 +5,9 @@ import { Component } from "@angular/core";
   styleUrls: ["app.component.scss"],
   template: `
     <div class="app">
-      <button  (click)="handleClick()">button</button>
-      <input
-        [ngModel]="name"
-        (ngModelChange)="handleChange($event)"
-      />
-      <input
-        [(ngModel)]="name"
-      />
+      <button (click)="handleClick(username.value)">Get value</button>
+      <!-- <button (click)="handleClick(username)">Get value</button> -->
+      <input type="text" #username />
       <div>{{ name }}</div>
     </div>
   `,
@@ -22,14 +17,10 @@ export class AppComponent {
   logo: string = "img/logo.svg";
   name: string = "Todd";
 
-  handleChange(event: string) {
-    //from my own research de expected type instead of any.
-    this.name = event;
-    console.log(event);
-  }
-
-  handleClick() {
-    this.name = "Todd";
+  handleClick(value: string) {
+    // handleClick(value: any) {
+    console.log(value);
+    //console.log(value.value);
   }
   constructor() {
     this.title = "Ultimate Angular";
